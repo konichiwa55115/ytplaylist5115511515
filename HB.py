@@ -309,7 +309,7 @@ async def ytdl(_, update):
     
     await  HB.send_video(
             chat_id = update.chat.id, 
-            caption=(f"⭕️ PLAYLIST : "+ pyt.title +video.title + "\n📥 DOWNLOADED " ),
+            caption=(f"⭕️ PLAYLIST : "+ pyt.title + "\n" + video.title + "\n📥 DOWNLOADED " ),
             video = phd.download(),
             
         )
