@@ -49,8 +49,7 @@ async def start(bot, update):
     text = START_TEXT.format(update.from_user.mention)
     await update.reply_text(
         text=text,
-        disable_web_page_preview=True,
-        reply_markup=reply_markup
+        disable_web_page_preview=True
     )
 
 @HB.on_message(filters.command(["help"]))
@@ -58,8 +57,7 @@ async def help_message(bot, update):
     text = HELP_TEXT
     await update.reply_text(
         text=text,
-        disable_web_page_preview=True,
-        reply_markup=reply_markup
+        disable_web_page_preview=True
     )
 
 @HB.on_message(filters.command(["about"]))
@@ -67,16 +65,14 @@ async def about_message(bot, update):
     text = ABOUT_TEXT
     await update.reply_text(
         text=text,
-        disable_web_page_preview=True,
-        reply_markup=reply_markup
+        disable_web_page_preview=True
     )
 @HB.on_message(filters.command(["source"]))
 async def about_message(bot, update):
     text = SOURCE_TEXT
     await update.reply_text(
         text=text,
-        disable_web_page_preview=True,
-        reply_markup=reply_markup
+        disable_web_page_preview=True
     )
 import os
 import math
