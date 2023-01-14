@@ -47,7 +47,6 @@ ABOUT_TEXT = """
 @HB.on_message(filters.command(["start"]))
 async def start(bot, update):
     text = START_TEXT.format(update.from_user.mention)
-    reply_markup = START_BUTTONS
     await update.reply_text(
         text=text,
         disable_web_page_preview=True,
@@ -57,7 +56,6 @@ async def start(bot, update):
 @HB.on_message(filters.command(["help"]))
 async def help_message(bot, update):
     text = HELP_TEXT
-    reply_markup = HELP_BUTTONS
     await update.reply_text(
         text=text,
         disable_web_page_preview=True,
@@ -67,7 +65,6 @@ async def help_message(bot, update):
 @HB.on_message(filters.command(["about"]))
 async def about_message(bot, update):
     text = ABOUT_TEXT
-    reply_markup = ABOUT_BUTTONS
     await update.reply_text(
         text=text,
         disable_web_page_preview=True,
@@ -76,7 +73,6 @@ async def about_message(bot, update):
 @HB.on_message(filters.command(["source"]))
 async def about_message(bot, update):
     text = SOURCE_TEXT
-    reply_markup = SOURCE_BUTTONS
     await update.reply_text(
         text=text,
         disable_web_page_preview=True,
@@ -229,7 +225,6 @@ async def cb_data(bot, update):
             chat_id = update.message.chat.id, 
             video = ythd.download(),
             caption=result_text,
-            reply_markup=result_buttons,
             progress=progress_for_pyrogram,
                     progress_args=(
                         UPLOAD_START,
@@ -249,7 +244,6 @@ async def cb_data(bot, update):
         chat_id = update.message.chat.id, 
         video = ytlow.download(),
         caption=result_text,
-        reply_markup=result_buttons,
        progress=progress_for_pyrogram,
                     progress_args=(
                         UPLOAD_START,
@@ -270,7 +264,6 @@ async def cb_data(bot, update):
         audio=f"{str(yt.title)}.mp3",
         caption=result_text,
         duration=yt.length,
-        reply_markup=result_buttons,
         progress=progress_for_pyrogram,
                     progress_args=(
                         UPLOAD_START,
@@ -283,28 +276,24 @@ async def cb_data(bot, update):
     elif update.data == 'thumbnail':
         await HB.send_photo(
             chat_id = update.message.chat.id, 
-            photo=thumb,
-            caption="**JOIN @TELSABOTS**"
+            photo=thumb
         )
         await update.message.delete()    
 
     elif update.data == "home":
         await update.message.edit_text(
             text=START_TEXT.format(update.from_user.mention),
-            disable_web_page_preview=True,
-            reply_markup=START_BUTTONS
+            disable_web_page_preview=True
         )
     elif update.data == "help":
         await update.message.edit_text(
             text=HELP_TEXT,
-            disable_web_page_preview=True,
-            reply_markup=HELP_BUTTONS
+            disable_web_page_preview=True
         )
     elif update.data == "about":
         await update.message.edit_text(
             text=ABOUT_TEXT,
-            disable_web_page_preview=True,
-            reply_markup=ABOUT_BUTTONS
+            disable_web_page_preview=True
         )
     
     else:
