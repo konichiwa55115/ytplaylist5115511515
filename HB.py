@@ -6,7 +6,7 @@ from pyrogram.types import Message
 import requests
 HB = Client(
     "YOUTUBE Bot",
-    bot_token = "5307529157:AAG2ECK2GOrEu-L1fjLICAwexCzFMIJBiRY",
+    bot_token = "5596598781:AAGhmyus12gfg_1dd4VhigcU2kuUyUss4vw",
     api_id = int(17983098),
     api_hash = "ee28199396e0925f1f44d945ac174f64"
 )  
